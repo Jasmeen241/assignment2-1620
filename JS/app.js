@@ -56,4 +56,44 @@ checkbox.addEventListener("change",function darkmode(){
     txtbtn2.classList.toggle("dark");
   }
 );
+// function to add text area and save and cancel buttons
+function addnotes() {
+    const check = document.querySelector(".addnotes")
+    if (check == null){
+        const main = document.getElementById("main");
+        const txtarea = document.createElement('textarea' );
+        txtarea.className = "addnotes";
+        const bintxt =document.createTextNode("your text goes here");
+
+        txtarea.appendChild(bintxt);
+        main.appendChild(txtarea);
+
+        const save = document.createElement('button' );
+        save.className= "txtbtn1"
+        const btntxt = document.createTextNode("save");
+
+        save.appendChild(btntxt);
+        main.appendChild(save);
+
+        const dltbtn = document.createElement('button' );
+        dltbtn.className= "txtbtn2"
+        const dlttxt = document.createTextNode("delete");
+
+        dltbtn.appendChild(dlttxt);
+        main.appendChild(dltbtn);
+        
+        //removing text area and buttons
+        const removetxt= document.querySelector(".txtbtn2")
+        removetxt.addEventListener("click",function(e){
+            main.removeChild(txtarea)
+            main.removeChild(save)
+            main.removeChild(dltbtn)
+        })
+    }
+
+}
+
+
+
+
  
