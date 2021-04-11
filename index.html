@@ -9,26 +9,32 @@
         </title>
     </head>
     <body>
-        
+       <script defer src = ./JS/app.js></script> 
        <div class= "container"> 
-           <nav class="topnav">
+            <nav class="topnav" id ="navbar">
                <ul>
-                   <li><a href="http"> ABOUT</a></li>
-                   <li><a href ="http">DOCS</a></li>
+                   <li ><a href="#"> ABOUT</a></li>
+                   <li ><a href ="#">DOCS</a></li>
                </ul>
 
             </nav>
-            <div class="item1"><button class="bt2" type="button">>></button></div>
-          
-           <div class="item2">
+            <div class="item1" id="sidebar">
+                <button class="notes" id="close"type="button" onclick="closesidebar()" ><<</button>
+    
+
+            </div>
               
-               <button class= "add notes" type="button"> <a href="./notes.html">+</a></button>
+          
+           <div class="item2" id="main">
+               <button id="open" class="notes" type="button" onclick="opensidebar()">>></button>
+               <button class= "notes" id= "addnotes" type="button" onclick = "addnotes()"> +</button>
+               <input type="checkbox" class="checkbox" id= "checkbox">
+               <label for= "checkbox" class="label">
+                   <div class="ball"></div>
+               </label>
                create new notes
            </div>
-          
-           
-       
-           <footer>created by jasmeen kaur gill</footer>
+           <footer id="footer">created by jasmeen kaur gill</footer>
         </div> 
     </body>
 </html>
