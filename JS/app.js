@@ -89,7 +89,64 @@ function addnotes() {
             main.removeChild(save)
             main.removeChild(dltbtn)
         })
+        const savenote = document.querySelector(".txtbtn1")
+        savenote.addEventListener("click",function(s){
+
+            if(txtarea.value!=="your text goes here"){
+                var length = notesarr.length + 1
+                var notenum = "note" + length.toString()
+                notesarr.push({title:notenum,body: txtarea.value})
+              
+                //adding notes to navbar
+
+                const titlebtn = document.createElement("button")
+                titlebtn.className= "titlebtns"
+                const titlebtntxt = document.createTextNode(notenum)
+                titlebtn.appendChild(titlebtntxt);
+                sidebar.appendChild(titlebtn)
+                main.removeChild(txtarea)
+                main.removeChild(save)
+                main.removeChild(dltbtn)
+
+                const display= document.querySelector(".titlebtns")
+
+                display.addEventListener("click",function(d){
+                var notenum = display.innerHTML[4]
+                var displaynum = parseInt(notenum)-1
+
+                var displaytext =(notesarr[displaynum].body)
+
+                var displaynote = document.createElement('textarea' );
+                displaynote.className = "addnotes";
+                var notetxt =document.createTextNode(displaytext);
+
+                displaynote.appendChild(notetxt);
+                main.appendChild(displaynote);
+
+                var cancelbtn  = document.createElement("button");
+                var cancelbtntxt = document.createTextNode("cancel");
+                cancelbtn.className= "txtbtn2";
+                
+                cancelbtn.appendChild(cancelbtntxt);
+                main.appendChild(cancelbtn);
+
+                //removing displayed note
+
+                var removedisplay = document.querySelector(".txtbtn2")
+                console.log(removedisplay)
+                removedisplay.addEventListener("click",function(remove){
+
+                    main.removeChild(displaynote)
+                    main.removeChild(cancelbtn)
+                })
+
+                })
+
+            }
+        })
+    
     }
+
 
 }
 
